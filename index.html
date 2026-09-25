@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Academic survey on six methods of financial motivation among employees.">
+  <title>Financial Motivation of Employees — Survey</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="site-shell">
+  <main id="landingView" class="view active-view">
+    <section class="hero">
+      <div class="hero-badge">CLASS XII • BUSINESS ADMINISTRATION • CHAPTER 5 — MOTIVATION</div>
+      <h1>Financial Motivation of Employees</h1>
+      <p class="hero-lead">A focused academic survey on the six financial methods of motivation and their perceived effect on employee effort, satisfaction and performance.</p>
+      <div class="hero-grid">
+        <article class="info-card"><h2>What this survey studies</h2><p>Only <strong>Pay &amp; Allowance, Bonus, Profit Sharing, Commission, Performance-Linked Incentives, and Stock Options.</strong></p></article>
+        <article class="info-card"><h2>What is recorded</h2><p>Your answers, optional workplace photograph and optional written observation are recorded for academic analysis. One email can submit once; one organisation may have multiple respondents.</p></article>
+        <article class="info-card"><h2>Privacy</h2><p>Do not enter salary figures, passwords, bank details or confidential information. The survey asks about incentive practices and their effects.</p></article>
+      </div>
+      <div class="landing-actions">
+        <button id="startSurveyBtn" class="primary-btn" type="button">Start Survey</button>
+        <span class="landing-note">20 core questions • about 4–7 minutes</span>
+      </div>
+    </section>
+  </main>
+
+  <main id="surveyView" class="view" hidden>
+    <section class="survey-shell">
+      <header class="survey-header">
+        <div><span class="eyebrow">FINANCIAL MOTIVATION SURVEY</span><h1>Employee Incentive Practices</h1><p>All 20 core questions are required. Optional items are marked clearly.</p></div>
+        <div class="progress-wrap"><div class="progress-text"><span id="progressCount">0</span>/20 answered</div><div class="progress-track"><div id="progressFill" class="progress-fill"></div></div></div>
+      </header>
+
+      <form id="surveyForm" novalidate>
+        <section class="form-card metadata-card">
+          <div class="section-heading"><span class="section-number">A</span><div><h2>Respondent details</h2><p>Identification fields only; no salary or private financial data is requested.</p></div></div>
+          <div class="field-grid two">
+            <div class="field"><label for="firstName">First name <span class="req">*</span></label><input id="firstName" name="firstName" type="text" autocomplete="given-name" placeholder="e.g. Joyson" maxlength="60"><div class="hint">Use standard capitalization, e.g. <strong>Joyson</strong>, not <strong>joyson</strong>.</div><div id="firstNameError" class="error-text"></div></div>
+            <div class="field"><label for="secondName">Second name <span class="optional">(optional)</span></label><input id="secondName" name="secondName" type="text" autocomplete="family-name" placeholder="e.g. Rao" maxlength="60"><div class="hint">Leave blank when not applicable; otherwise use standard capitalization.</div><div id="secondNameError" class="error-text"></div></div>
+            <div class="field"><label for="email">Email address <span class="req">*</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="120"><div class="hint">One email address can submit only once.</div><div id="emailError" class="error-text"></div></div>
+            <div class="field"><label for="organization">Organisation / company name <span class="req">*</span></label><input id="organization" name="organization" type="text" placeholder="e.g. Aakash Institute" maxlength="120"><div class="hint">Use the specific name. Generic labels such as “NGO”, “company” or “organisation” are not accepted.</div><div id="organizationError" class="error-text"></div></div>
+            <div class="field"><label for="department">Department / unit <span class="req">*</span></label><input id="department" name="department" type="text" placeholder="e.g. Sales, Teaching, Finance" maxlength="100"><div class="hint">Enter the specific department, unit or role group.</div><div id="departmentError" class="error-text"></div></div>
+          </div>
+        </section>
+
+        <section class="questions-card" id="questionsContainer"></section>
+
+        <section class="form-card">
+          <div class="section-heading"><span class="section-number">B</span><div><h2>Optional evidence</h2><p>This section is separate from the 20 core financial-motivation questions.</p></div></div>
+          <div class="field"><label for="workplacePhoto">Workplace / organisation photograph <span class="optional">(optional)</span></label><input id="workplacePhoto" name="workplacePhoto" type="file" accept="image/jpeg,image/png,image/webp"><div class="hint">JPG, PNG or WebP. The image is compressed before upload and stored in the project’s Google Drive photo folder.</div><div id="photoError" class="error-text"></div></div>
+          <div class="field"><label for="summary">Your observation on financial motivation <span class="optional">(optional)</span></label><textarea id="summary" name="summary" rows="5" maxlength="1200" placeholder="Briefly summarize your view of financial motivation, its need and its effects on employees."></textarea><div class="hint">Avoid private salary figures or confidential company information.</div><div id="summaryError" class="error-text"></div></div>
+        </section>
+
+        <section class="form-card verification-card">
+          <div class="section-heading"><span class="section-number">C</span><div><h2>Verification &amp; submission</h2><p>Correct every field marked in red before submitting.</p></div></div>
+          <div class="captcha-box"><div class="captcha-question" id="captchaQuestion">Loading verification…</div><button id="newCaptchaBtn" class="text-btn" type="button">New calculation</button><input id="captchaAnswer" type="text" inputmode="numeric" autocomplete="off" placeholder="Answer"><div id="captchaError" class="error-text"></div></div>
+          <label class="terms-line"><input id="agreeTerms" type="checkbox"><span>I confirm that my answers are provided for academic research, are truthful to my knowledge, and contain no confidential financial information.</span></label>
+          <div id="agreeError" class="error-text"></div>
+          <button id="submitBtn" class="primary-btn submit-btn" type="submit">Submit Survey</button>
+          <div id="submitStatus" class="submit-status" role="status" aria-live="polite"></div>
+        </section>
+      </form>
+    </section>
+  </main>
+
+  <main id="thankView" class="view" hidden>
+    <section class="thank-card">
+      <div class="success-icon">✓</div><span class="eyebrow">SUBMISSION RECEIVED</span>
+      <h1>Thank you for completing the survey.</h1>
+      <p id="thankText">Your response has been recorded successfully for the academic study on financial motivation.</p>
+      <div class="thank-details"><div><span>Participant ID</span><strong id="thankUserId">—</strong></div><div><span>Response status</span><strong>Recorded</strong></div></div>
+      <p class="thank-note">You may now close this page. The owner dashboard updates automatically as new responses arrive.</p>
+    </section>
+  </main>
+</div>
+<script src="script.js" defer></script>
+</body>
+</html>
